@@ -9,18 +9,18 @@ def Output_of_all_data():
 
 def data_search():
     with open('file.txt', 'r+') as f:
-        list_1 = list(f.read().split('\n'))
+        list_1 = list(f.read().lower().split('\n'))
         data = input('Введите данные для поиска: ')
         for i in range(len(list_1)):
             list_1[i] = list_1[i].split()
         for i in range(len(list_1)):
-            if data in list_1[i]:
+            if data.lower() in list_1[i]:
                 print(list_1[i])
 
 def To_change_the_data():
     with open('file.txt', 'r+') as f:
-        old_data = f.read()
-    data = input('Введите данные для изменения: ')
+        old_data = f.read().lower()
+    data = input('Введите данные для изменения: ').lower()
     data1 = input("Введите новые данные: ")
     new_data = old_data.replace(data, data1)
     with open('file.txt', 'w') as f:
